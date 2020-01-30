@@ -43,6 +43,17 @@
 				foreach($users as $user) {
 					echo $user->email.'<br>';
 				}
+/*
+				$login = 'codi999';
+				$email = 'test@test.ru';
+				$name = 'Влад';
+				$surname = 'Дударь';
+
+				$sql = 'INSERT INTO users(login, email, name, surname) VALUES (:login, :email :name, :surname)';
+				$query = $pdo->prepare($sql);
+				$query->execute(['login' => $login, 'email' => $email, 'name' => $name, 'surname' => $surname]);
+*/
+
 		?>
 	</body>
 </html>
