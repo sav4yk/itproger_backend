@@ -3,3 +3,5 @@ AddDefaultCharset UTF-8
 
 ErrorDocument 404 /itproger_backend.git/lesson4/error.php
 ErrorDocument 400 /itproger_backend.git/lesson4/error.php
+
+# RewriteRule ^reg?$ reg.php [NC, L] 
