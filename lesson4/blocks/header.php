@@ -22,6 +22,14 @@
 		   <!-- <a class="p-2 text-dark" href="#">Features</a> -->
 
 		  </nav>
-			<a class="btn btn-outline-primary mr-2" href="#">Войти</a>
+			<?php	if (!isset($_COOKIE['log']) || $_COOKIE['log'] == '') : ?>
+			<a class="btn btn-outline-primary mr-2" href="auth.php">Войти</a>
 		  <a class="btn btn-outline-primary" href="reg.php">Регистрация</a>
+			<?php
+			else :
+				 ?>
+				 <a class="btn btn-outline-primary mr-2" href="auth.php">Кабинет пользователя</a>
+				 <?php
+			 endif;
+						?>
 		</div>

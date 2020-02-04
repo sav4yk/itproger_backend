@@ -21,13 +21,7 @@
 	$hash = "fasd436fhgdhbcngdg";
 	$pass = md5($pass . $hash);
 
-	$user = 'root';
-	$password = '';
-	$db = 'testing';
-	$host = 'localhost';
-
-	$dsn = 'mysql:host='.$host.';dbname='.$db;
-	$pdo = new PDO($dsn, $user, $password);
+	require_once '../mysql_connect.php';
 
 	$sql = 'INSERT INTO users(name, email, login, pass) VALUES(?, ?, ?, ?)';
 	$query = $pdo->prepare($sql);
