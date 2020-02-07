@@ -21,6 +21,7 @@
 		  <nav class="my-2 my-md-0 mr-md-3">
 				<a class="p-2 text-dark" href="">Главная</a>
 				<a class="p-2 text-dark" href="users.php">Список пользователей</a>
+				<a class="p-2 text-dark" href="contacts.php">Контакты</a>
 				<?php
 				if (isset($_COOKIE['log']) && $_COOKIE['log'] != '')
 					echo '<a class="p-2 text-dark" href="article.php">Добавить статью</a>';
