@@ -1,0 +1,25 @@
+//создаем новый проект и подключаем в него Git через терминал
+git init
+
+//создаем файл .gitignore с содержимым:
+*.sass
+/bin
+/admin
+/config
+
+//добавляем все файлы в локальное хранилище;
+git add .
+git commit -m 'add files'
+
+//создаем новую ветку (new) и переходим в неё;
+git branch new
+git checkout new
+
+//в новой ветке создаем папку blog с файлами: index.js, index.html;
+git add .
+git commit -m 'new files'
+
+//загружаем на удаленный репозиторий лишь основную ветку проекта.
+git checkout master
+git remote add origin https://github.com/sav4yk/itproger_backend_lesson6.gitlesson
+git push -u origin master
