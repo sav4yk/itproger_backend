@@ -30,7 +30,7 @@
 				}
 
 				public function __call($name, $args) {
-					$this->link->$name($args[0]);
+					$this->link->$name(implode(', ', $args));
 				}
 			}
 
