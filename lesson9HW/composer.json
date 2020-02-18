@@ -1,0 +1,16 @@
+{
+    "name": "vendor/app",
+    "description": "Homework lesson 9",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vladimir Savchuk",
+            "email": "reg@sav4yk.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master",
+        "erusev/parsedown": "dev-master"
+    }
+}
