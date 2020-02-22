@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    items-service:
+        build: ./items
+        volumes:
+            - ./items:/usr/src/app
+        ports:
+            - 5001:80
+    php-website:
+        image: php:apache
+        volumes:
+            - ./website-php:/var/www/html
+        ports:
+            - 5000:80
+        depends_on:
+            - items-service
