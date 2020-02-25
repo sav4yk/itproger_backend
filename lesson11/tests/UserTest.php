@@ -27,4 +27,19 @@
             $this->assertEquals($this->user->getUserName(), 'George');
             $this->assertEquals($this->user->getUserLastName(), 'Dudar');
         }
+
+        public function  testIsAllElementsIsCorrect() {
+            $this->user->setUserName("John");
+            $this->user->setUserLastName("Marley");
+
+            $array = $this->user->getUserDataArray();
+
+            $this->assertArrayHasKey('name',$array);
+            $this->assertArrayHasKey('last_name',$array);
+
+            $this->assertEquals($array['name'], 'John');
+            $this->assertEquals($array['last_name'], 'Marley');
+
+
+        }
     }
