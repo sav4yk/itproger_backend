@@ -5,7 +5,9 @@
             <a href="/contact">Контакты</a>
             <a href="/contact/about">Про компанию</a>
         </div>
-        <div class="tel"><i class="fas fa-phone"></i> +7 (000) 000 - 00 - 00</div>
+        <div class="tel">
+            <i class="fas fa-phone"></i> +7 (000) 000 - 00 - 00
+        </div>
     </div>
     <div class="container middle">
         <div class="logo">
@@ -13,9 +15,15 @@
             <span>Мы знаем что вы хотите!</span>
         </div>
         <div class="auth-checkout">
-            <a href="/basket"><button class="btn basket">Корзина <b>(0)</b></button></a><br>
-            <a href="/user/auth"><button class="btn auth">Войти</button></a>
-            <a href="/user/reg"><button class="btn">Регистрация</button></a>
+            <a href="/basket">
+                <button class="btn basket">Корзина <b>(0)</b></button>
+            </a><br>
+            <a href="/user/auth">
+                <button class="btn auth">Войти</button>
+            </a>
+            <a href="/user/reg">
+                <button class="btn">Регистрация</button>
+            </a>
         </div>
     </div>
     <div class="container menu">

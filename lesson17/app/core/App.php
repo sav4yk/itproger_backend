@@ -7,10 +7,15 @@
 
         public function __construct() {
             $url = $this->parseUrl();
-
-            if(isset($url[0]) && file_exists('app/controllers/' . ucfirst($url[0]) . '.php')) {
+            if (isset($url[0]))
+            if(file_exists('app/controllers/' . ucfirst($url[0]) . '.php')) {
                 $this->controller = ucfirst($url[0]);
                 unset($url[0]);
+            } else {
+                $this->controller = 'SiteError';
+                $this->method = 'err404';
+                unset($url[0]);
+                unset($url[1]);
             }
 
             require_once 'app/controllers/' . $this->controller . '.php';

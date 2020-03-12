@@ -19,12 +19,12 @@ img {max-width: 100%}
 a {
     color: #ff5644;
     text-decoration: none;
-    transition: all 0.6s ease;
+    transition: all 600ms ease;
 }
 
 a:hover {
     color: #8bddff;
-    transition: all 0.6s ease;
+    transition: all 600ms ease;
 }
 
 .container {
@@ -35,8 +35,8 @@ a:hover {
 
 @media(max-width: 900px) {
     .container {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 15%;
+        padding-right: 15%;
         width: 90%;
     }
 }

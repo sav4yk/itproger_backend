@@ -1,9 +1,9 @@
-.form-controll {
+.form-control {
     width: 500px;
 }
 
-.form-controll input,
-.form-controll textarea {
+.form-control input,
+.form-control textarea {
     width: 100%;
     background: #fcfcfc;
     border: 1px solid silver;
@@ -14,18 +14,18 @@
     color: #333;
 }
 
-.form-controll textarea {
+.form-control textarea {
     height: 200px;
     resize: none;
 }
 
-.form-controll .btn {
+.form-control .btn {
     margin-top: 15px;
     margin-left: 0;
     background: #ff5644;
 }
 
-.form-controll .error {
+.form-control .error {
     color: #ff5644;
     font-weight: 600;
     margin-top: 10px;
