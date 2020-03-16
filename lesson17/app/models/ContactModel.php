@@ -1,5 +1,5 @@
 <?php
-    class ContactForm {
+    class ContactModel {
         private $name;
         private $email;
         private $age;
@@ -19,17 +19,17 @@
                 return "Email слишком короткий";
             else if(!is_numeric($this->age) || $this->age <= 0 || $this->age > 90)
                 return "Вы ввели не возраст";
-            else if(strlen($this->message) < 5)
+            else if(strlen($this->message) < 10)
                 return "Сообщение слишком короткое";
             else
                 return "Верно";
         }
 
         public function mail() {
-            $to = "admin@itproger.com";
+            $to = "reg@sav4yk.ru";
             $message = 'Имя: ' . $this->name . '. Возраст: ' . $this->age . '. Сообщение: ' . $this->message;
 
-            $subject = "=?utf-8?B?".base64_encode("Сообщение с сайта")."?=";
+            $subject = "=?utf-8?B?".base64_encode("Сообщение с нашего сайта")."?=";
             $headers = "From: $this->email\r\nReply-to: $this->email\r\nContent-type: text/html; charset=utf-8\r\n";
             $success = mail ($to, $subject, $message, $headers);
 
