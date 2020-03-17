@@ -161,6 +161,7 @@ header > .menu > ul > li a:hover {color: #ff5644}
     margin-top: 50px;
     border: 1px solid silver;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .main > .products > .product:nth-child(3n) {margin-right: 0}
@@ -184,6 +185,7 @@ header > .menu > ul > li a:hover {color: #ff5644}
     width: 90%;
     font-size: 22px;
     color: #515b5b;
+
 }
 
 .main > .products > .product p {font-size: 16px}
@@ -217,4 +219,26 @@ footer > .social > i {
 footer > .social > i:hover {
     transition: transform 600ms ease;
     transform: translateY(-5px);
+}
+
+.paginator {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 100px;
+    display: block;
+}
+
+.paginator .btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding-top:5px;
+    text-align:center;
+    color: white;
+    background: black;
+    margin: 5px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    font-size:16px;
 }
