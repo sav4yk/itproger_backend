@@ -76,4 +76,39 @@
             header ('Location: /user/dashboard');
         }
 
+        public function uploadImg(){
+            if (isset($_COOKIE['login'])) {
+                $email = $_COOKIE['login'];
+                $file_name = $_FILES['img_user']['name'];
+                $file_size = $_FILES['img_user']['size'];
+                $file_tmp = $_FILES['img_user']['tmp_name'];
+                $file_type = $_FILES['img_user']['type'];
+                $tmp = explode('.', $_FILES['img_user']['name']);
+                $file_ext = strtolower(end($tmp));
+
+                $expensions = array("jpeg", "jpg", "png");
+
+                if ($file_size > (500 * 1024)) {
+                    return 'Файл не более 500 Кбайт';
+                }
+
+                if ($_FILES['img_user']['error']==4) {
+                    return 'Вы не указали файл для загрузки';
+                }
+                $new_filename =   time() . "_" .  $file_name;
+                move_uploaded_file($file_tmp, "public/img/upload/" . $new_filename);
+
+                $sql = 'UPDATE users SET img=:img WHERE email=:email';
+                $query = $this->_db->prepare($sql);
+
+
+                $query->execute(['img' => $new_filename, 'email' => $email]);
+                return "/public/img/upload/" . $file_name;
+                //header ('Location: /user/dashboard');
+
+            } else
+                return 'Нет доступа';
+        }
+
+
     }

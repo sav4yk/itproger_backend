@@ -18,13 +18,17 @@
         }
 
         public function dashboard() {
+            $data = [];
             $user = $this->model('UserModel');
             if(isset($_POST['exit_btn'])) {
                 $user->logOut();
                 exit();
             }
-
-            $this->view('user/dashboard',$user->getUser());
+            $data['user'] = $user->getUser();
+            if(isset($_FILES['img_user']) ) {
+                $data['message'] = $user->uploadImg();
+            }
+                $this->view('user/dashboard',$data);
         }
 
         public function auth(){

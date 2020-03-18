@@ -9,15 +9,23 @@
 
     <link rel="stylesheet" href="/public/css/main.css" type="text/css" charset="utf-8">
     <link rel="stylesheet" href="/public/css/user.css" type="text/css" charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
 </head>
 <body>
 <?php require_once 'public/blocks/header.php'; ?>
 
 <div class="container main">
-    <h1>Кабинет пользователя <?=$data['name'] ?></h1>
+    <h1>Кабинет пользователя <?=$data['user']['name'] ?></h1>
     <div class="user-info">
-        <p>Привет, <b><?=$data['name'] ?></b></p>
+        <p>Привет, <b><?=$data['user']['name'] ?></b></p>
+        <div class="error"><?php if (isset($data['message'])) echo $data['message']; ?></div>
+        <form action="/user/dashboard" method="post" enctype="multipart/form-data">
+            <input type="file" name="img_user" />
+            <button class="btn" type="submit">Загрузить</button>
+
+        </form>
+        <?php if (isset($data['img'])) ?>
+            <img src="/public/img/upload/<?= $data['user']['img']?>" alt="<?=$data['user']['name']?>" />
         <form action="/user/dashboard" method="post">
             <input type="hidden" name="exit_btn">
             <button class="btn" type="submit">Выйти</button>
