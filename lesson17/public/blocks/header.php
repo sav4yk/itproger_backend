@@ -18,12 +18,18 @@
             <a href="/basket">
                 <button class="btn basket">Корзина <b>(0)</b></button>
             </a><br>
-            <a href="/user/auth">
-                <button class="btn auth">Войти</button>
-            </a>
-            <a href="/user/reg">
-                <button class="btn">Регистрация</button>
-            </a>
+            <?php if(!isset($_COOKIE['login']) || $_COOKIE['login'] == ''): ?>
+                <a href="/user/auth">
+                    <button class="btn auth">Войти</button>
+                </a>
+                <a href="/user/reg">
+                    <button class="btn">Регистрация</button>
+                </a>
+            <?php else: ?>
+                <a href="/user/dashboard">
+                    <button class="btn dashboard">Кабинет пользователя</button>
+                </a>
+            <?php endif; ?>
         </div>
     </div>
     <div class="container menu">
