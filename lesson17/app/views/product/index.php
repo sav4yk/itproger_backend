@@ -26,7 +26,10 @@
                 <p><?=$data['text']?></p>
         </div>
         <div>
-            <button class ="btn"> Купить за <?=$data['price']?> рублей</button>
+            <form action="/basket" method="post">
+                <input type="hidden" name="item_id" value="<?=$data['id']?>">
+                <button class ="btn"> Купить за <?=$data['price']?> рублей</button>
+            </form>
         </div>
     </div>
 

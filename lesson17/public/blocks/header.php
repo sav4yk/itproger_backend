@@ -16,7 +16,11 @@
         </div>
         <div class="auth-checkout">
             <a href="/basket">
-                <button class="btn basket">Корзина <b>(0)</b></button>
+                <?php
+                    require_once 'app/models/BasketModel.php';
+                    $basketModel = new BasketModel();
+                ?>
+                <button class="btn basket">Корзина (<b><?=$basketModel->countItems()?></b>)</button>
             </a><br>
             <?php if(!isset($_COOKIE['login']) || $_COOKIE['login'] == ''): ?>
                 <a href="/user/auth">
