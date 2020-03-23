@@ -39,4 +39,21 @@
                 return count($items);
             }
         }
+
+        public function removeFromCart($itemID) {
+            if(!$this->isSetSession()) {
+                $_SESSION[$this->session_name] = $itemID;
+            } else {
+                $items = explode(",",  $_SESSION[$this->session_name]);
+                if (($key = array_search($itemID, $items)) !== false) {
+                    unset($items[$key]);
+
+                }
+
+                unset($_SESSION[$this->session_name]);
+                if (count($items)>0)
+                    $_SESSION[$this->session_name] = implode(",", $items);
+
+            }
+        }
     }

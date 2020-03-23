@@ -19,6 +19,11 @@
     <?php if (!isset($data['products']) || count($data['products']) == 0): ?>
         <p><?php if (isset($data['empty'])) echo $data['empty']; ?></p>
     <?php else: ?>
+        <form action="/basket/removeallitem" method="post">
+            <input type="hidden" name="remove_all" value="all">
+            <button class ="btn">Удалить все <i class="fas fa-trash"></i></button>
+        </form>
+
         <div class="products">
             <?php
                 $sum = 0;
@@ -29,6 +34,11 @@
                 <img src="/public/img/<?=$data['products'][$i]['img']?>" alt="<?=$data['products'][$i]['title']?>">
                 <h4><?=$data['products'][$i]['title']?></h4>
                 <span><?=$data['products'][$i]['price']?> руб.</span>
+                <form action="/basket/removeOneItem" method="post">
+                    <input type="hidden" name="item_id" value="<?=$data['products'][$i]['id']?>">
+                    <button class ="btn">Удалить <i class="fas fa-trash-alt"></i></button>
+                </form>
+
             </div>    
             <?php endfor; ?>
             <button class="btn">Приобрести (<b><?=$sum?></b>)</button>
