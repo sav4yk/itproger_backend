@@ -1,13 +1,26 @@
 a,
 a:focus,
 a:hover {
-  color: #fff;
+  color: #1B807E;
 }
 
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
-  color: #333;
+  color: #209996;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #444444;
+  border: .05rem solid #209996;
+}
+
+.text::placeholder {
+  color: #209996;
+}
+
+.text,
+.text:hover,
+.text:focus {
+  color: #209996;
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #444444;
   border: .05rem solid #209996;
@@ -60,7 +73,7 @@ body {
 }
 
 .nav-masthead .active {
-  color: #fff;
+  color: #1B807E;
   border-bottom-color: #1B807E;
 }
 
@@ -90,5 +103,6 @@ body {
  * Footer
  */
 .mastfoot {
-  color: rgba(255, 255, 255, .5);
+
+  color: #1B807E;
 }

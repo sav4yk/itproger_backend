@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Сокрытить ссылку быстро и качественно">
     <title>Сокращатель | Sav4yk.ru</title>
+    <link href="/public/css/reset.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Favicons -->
     <link rel="icon" href="/img/favicon.ico">
@@ -50,22 +51,22 @@
         <a class="navbar-brand" href="#">
             <img src="/public/img/emblem.png" class="" alt="">
         </a>
-        <h1 class="cover-heading">Сократи длинную ссылку.</h1>
-        <p class="lead">Ваших друзей пугают длинные ссылку, занимающие много места в комментариях? Сократи ссылки с помощью нашего сервиса!</p>
-        <form>
+        <h1 class="cover-heading">Сократи длинную ссылку</h1>
+        <p class="lead">Ваших друзей пугают длинные ссылки, занимающие много места в комментариях? Сократи ссылки с помощью нашего сервиса!</p>
+        <form autocomplete="off">
             <div class="form-row align-items-center">
                 <div class="col-auto">
-                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Введите email">
+                    <input type="email" class="form-control mb-2 text" autocomplete="new-email" id="inlineFormInput" placeholder="Введите email" />
                 </div>
                 <div class="col-auto">
-                    <input type="email" class="form-control mb-2" id="inlineFormInput" placeholder="Введите login">
+                    <input type="text" class="form-control mb-2 text" id="inlineFormInput" placeholder="Введите login" />
                 </div>
                 <div class="col-auto">
-                    <input type="password" class="form-control mb-2" id="inlineFormInput" placeholder="Введите пароль">
+                    <input type="password" class="form-control mb-2 text" autocomplete="new-password" id="inlineFormInput" placeholder="Введите пароль" />
                 </div>
             </div>
-            <div class="form-row align-items-center">
-                <div class="col-auto">
+            <div class="form-row align-items-center w-100">
+                <div class="col-auto w-100">
                     <button type="button" class="btn btn-secondary mb-2">Зарегистрируйся</button>
                 </div>
             </div>
