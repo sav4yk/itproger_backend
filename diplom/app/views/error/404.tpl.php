@@ -8,7 +8,7 @@
     <link href="/public/css/reset.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Favicons -->
-    <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/public/img/favicon.ico">
 
     <style>
         .bd-placeholder-img {

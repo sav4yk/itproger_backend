@@ -2,6 +2,7 @@
     class UserController extends Controller {
         public function reg() {
             $data = [];
+            $data['page'] = 'reg';
             if(isset($_POST['login'])) {
                 $user = $this->model('User');
                 $user->setData($_POST['login'], $_POST['email'], $_POST['password'], $_POST['re-password']);
@@ -21,6 +22,7 @@
 
         public function dashboard() {
             $data = [];
+            $data['page'] = 'dashboard';
             $user = $this->model('User');
             if(isset($_POST['exit_btn'])) {
                 $user->logOut();
@@ -32,6 +34,7 @@
 
         public function auth(){
             $data = [];
+            $data['page'] = 'auth';
             if(isset($_POST['login'])) {
                 $user = $this->model('User');
                 $data['message'] = $user->auth($_POST['login'], $_POST['password']);

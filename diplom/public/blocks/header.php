@@ -6,13 +6,13 @@
 
 
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="/">Главная</a>
-                <a class="nav-link" href="/">Про нас</a>
-                <a class="nav-link" href="/home/contact">Контакты</a>
-                <?php if (isset($data['user']) && $data['user']!=''): ?>
-                    <a class="nav-link" href="/user/dashboard">Личный кабинет</a>
+                <a class="nav-link <?php if (!isset($data['page']) && $data['page']=='') echo 'active'; ?>" href="/">Главная</a>
+                <a class="nav-link <?php if (isset($data['page']) && $data['page']=='about') echo 'active'; ?>" href="/home/about">О нас</a>
+                <a class="nav-link <?php if (isset($data['page']) && $data['page']=='contact') echo 'active'; ?>" href="/home/contact">Контакты</a>
+                <?php if (isset($_COOKIE['login'])): ?>
+                    <a class="nav-link <?php if (isset($data['page']) && $data['page']=='dashboard') echo 'active'; ?>" href="/user/dashboard">Личный кабинет</a>
                 <?php else: ?>
-                    <a class="nav-link" href="/user/auth">Войти</a>
+                    <a class="nav-link <?php if (isset($data['page']) && $data['page']=='auth') echo 'active'; ?>" href="/user/auth">Войти</a>
                 <?php endif; ?>
             </nav>
         </div>

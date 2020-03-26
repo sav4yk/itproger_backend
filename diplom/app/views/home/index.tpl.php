@@ -6,9 +6,10 @@
     <meta name="description" content="Сократить ссылку быстро и качественно">
     <title>Сокращатель | Sav4yk.ru</title>
     <link href="/public/css/reset.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Favicons -->
-    <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/public/img/favicon.ico">
 
     <style>
         .bd-placeholder-img {
@@ -51,14 +52,14 @@
             </div>
             <div class="form-row align-items-center w-100">
                 <div class="col-12">
-                    <button type="submit" class="btn btn-secondary mb-2">Сократить</button>
+                    <button type="submit" class="btn btn-secondary mb-2">Сократить <i class="fas fa-cut"></i></button>
                 </div>
             </div>
             <div class="error"><?php if (isset($data['message'])) echo $data['message']; ?></div>
         </form>
 
     <?php if(isset($data['links']) && sizeof($data['links'])!=0): ?>
-        <h2>Сокращенные ссылки</h2>
+        <h2 class="mt-2">Сокращенные ссылки</h2>
         <div class="shortlinks">
 
             <?php foreach ($data['links'] as $link):?>
@@ -75,12 +76,12 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-6">
-                            <button type="button" class="btn btn-secondary mb-2" OnClick="copuBuf('http://<?=$_SERVER['SERVER_NAME'].'/'.$link['short_link'] ?>')">Скопировать в буфер</button>
+                            <button type="button" class="btn btn-secondary mb-2" OnClick="copuBuf('http://<?=$_SERVER['SERVER_NAME'].'/'.$link['short_link'] ?>')">Скопировать в буфер <i class="fas fa-copy"></i></button>
                         </div>
                         <div class="col-6 text-right">
                             <form action="/" method="post">
                                 <input type="hidden" name="dellink" value="<?=$link['id'] ?>">
-                                <button type="submit" class="btn btn-secondary mb-2">Удалить</button>
+                                <button type="submit" class="btn btn-secondary mb-2">Удалить <i class="fas fa-trash"></i></button>
                             </form>
                         </div>
                     </div>

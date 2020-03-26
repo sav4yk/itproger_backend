@@ -16,8 +16,7 @@ class LinkModel {
     public function setData($userId, $fullLink, $shortLink) {
         $this->userId = $userId;
         $this->fullLink = filter_var($fullLink, FILTER_VALIDATE_URL);
-        $prm = preg_replace("/^[a-zа-яё\d]{1}[a-zа-яё\d\s]*[a-zа-яё\d]{1}$/i", "", $prm);
-        $this->shortLink = filter_var($shortLink, FILTER_SANITIZE_STRING);
+         $this->shortLink = filter_var($shortLink, FILTER_SANITIZE_STRING);
 
     }
 
@@ -58,9 +57,8 @@ class LinkModel {
     }
 
     public function getLinks($user_id) {
-        $query = $this->_db->prepare("SELECT * FROM `links` WHERE  `user_id` = '$user_id' ORDER BY id DESC");
-        $query->execute([$category]);
-        return $query->FetchAll(PDO::FETCH_ASSOC);
+        $result = $this->_db->query("SELECT * FROM `links` WHERE  `user_id` = '$user_id' ORDER BY id DESC");
+        return $result->FetchAll(PDO::FETCH_ASSOC);
     }
 
     public function saveShortLink() {
@@ -72,9 +70,8 @@ class LinkModel {
     }
 
     public function getFullLink($short) {
-        $query = $this->_db->prepare("SELECT * FROM `links` WHERE  `short_link` = '$short' LIMIT 1");
-        $query->execute([$category]);
-        $result =  $query->Fetch(PDO::FETCH_ASSOC);
+        $result = $this->_db->query("SELECT * FROM `links` WHERE  `short_link` = '$short' LIMIT 1");
+        $result =  $result->Fetch(PDO::FETCH_ASSOC);
         return $result['full_link'];
 
     }

@@ -8,7 +8,7 @@
     <link href="/public/css/reset.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Favicons -->
-    <link rel="icon" href="/img/favicon.ico">
+    <link rel="icon" href="/public/img/favicon.ico">
 
     <style>
         .bd-placeholder-img {
@@ -42,7 +42,7 @@
             <div class="form-row align-items-center w-100">
                 <div class="col-5">
                     <input type="text" class="form-control mb-2 text" autocomplete="new-login" id="login" name="login"
-                           value="<?php if (isset($data['login'])) echo $data['login']; ?>" placeholder="Введите login" />
+                           value="<?php if (isset($data['login'])) echo $data['login']; ?>" placeholder="Введите логин" />
                 </div>
                 <div class="col-5">
                     <input type="password" class="form-control mb-2 text" autocomplete="new-password" id="password" name="password" placeholder="Введите пароль" />

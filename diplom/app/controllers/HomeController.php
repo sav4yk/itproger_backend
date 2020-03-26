@@ -45,6 +45,7 @@
 
         public function contact(){
             $data = [];
+            $data['page'] = 'contact';
             if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['age']) && isset($_POST['message'])) {
                 $contact = $this->model('Contact');
                 $contact->setData();
@@ -53,9 +54,18 @@
                     $contact->sendMes();
                     $data['good_message'] = 'Ваше сообщение отправлено';
                 } else {
+                    $data['name'] = $_POST['name'];
+                    $data['email'] = $_POST['email'];
+                    $data['age'] = $_POST['name'];
+                    $data['mes'] = $_POST['message'];
                     $data['message'] = $isValid;
                 }
             }
             $this->view('home/contact',$data);
+        }
+
+        public function about(){
+            $data['page'] = 'about';
+            $this->view('home/about',$data);
         }
     }

@@ -31,7 +31,7 @@ require_once 'DB.php';
 
         public function validForm() {
             if(strlen($this->login) < 3)
-                return "Имя слишком короткое";
+                return "Логин слишком короткий";
             else if(strlen($this->email) < 3)
                 return "Email слишком короткий";
             else if(strlen($this->pass)<3)
@@ -59,14 +59,14 @@ require_once 'DB.php';
         public function getUser(){
 
             if (isset($_COOKIE['login']))  {
-                $email = $_COOKIE['login'];
-                $result = $this->_db->query("SELECT * FROM `users` WHERE `email` = '$email' LIMIT 1");
+                $login = $_COOKIE['login'];
+                $result = $this->_db->query("SELECT * FROM `users` WHERE `login` = '$login' LIMIT 1");
                 return $result->fetch(PDO::FETCH_ASSOC);
             }
         }
 
         public function logOut() {
-            setcookie('login', $this->email, time() - 3600 * 24 * 30, '/');
+            setcookie('login', '', time() - 3600 * 24 * 30, '/');
             unset($_COOKIE['login']);
             header ('Location: /user/auth');
         }
@@ -77,14 +77,14 @@ require_once 'DB.php';
             if($user == '' || $user['login'] == '') {
                 return 'Пользователя с таким логином не существует';
             } elseif (password_verify($pass, $user['pass'])) {
-                $this->setAuth($user['email']);
+                $this->setAuth($user['login']);
             } else {
                 return 'Пароли не совпадают';
             }
         }
 
-        public function setAuth($email) {
-            setcookie('login', $email, time() + 3600 * 24 * 30, '/');
+        public function setAuth($login) {
+            setcookie('login', $login, time() + 3600 * 24 * 30, '/');
             header ('Location: /');
         }
 
