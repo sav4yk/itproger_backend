@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Сокрытить ссылку быстро и качественно">
-    <title>Ошибка | Сокращатель </title>
+    <meta name="description" content="Сократить ссылку быстро и качественно">
+    <title>О нас | Сокращатель</title>
     <link href="/public/css/reset.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Favicons -->
@@ -31,18 +31,17 @@
 
 <body class="text-center">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-<?php require_once 'public/blocks/header.php'; ?>
+    <?php require_once 'public/blocks/header.php'; ?>
     <main role="main" class="inner cover">
         <a class="navbar-brand" href="#">
             <img src="/public/img/emblem.png" class="" alt="">
         </a>
-        <h1 class="cover-heading">Ошибка 404</h1>
-        <p class="lead">Мы проверили - такой страницы нет!</p>
-        <p class="lead"><a href="/">Перейти на Главную</a></p>
-         
-
+        <h1 class="cover-heading">О нас</h1>
+        <p class="lead">Данный сайт был разработан в процессе выполнения дипломного задания по курсу</p>
+        <h2><a href="https://itproger.com/intensive/back-end">Профессия Back-end разработчик</a></h2>
+        <p>школы программирования itProger </p>
     </main>
-<?php require_once 'public/blocks/footer.php'; ?>
+    <?php require_once 'public/blocks/footer.php'; ?>
 </div>
 </body>
 </html>
