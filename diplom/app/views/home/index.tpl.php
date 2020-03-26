@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Сокрытить ссылку быстро и качественно">
+    <meta name="description" content="Сократить ссылку быстро и качественно">
     <title>Сокращатель | Sav4yk.ru</title>
     <link href="/public/css/reset.css" rel="stylesheet">
     <link href="/public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -31,54 +31,80 @@
 
 <body class="text-center">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-
-        <div class="inner">
-
-                <h3 class="masthead-brand">Сокращатель</h3>
-
-
-            <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Главная</a>
-                <a class="nav-link" href="#">Про нас</a>
-                <a class="nav-link" href="#">Контакты</a>
-                <a class="nav-link" href="#">Войти</a>
-            </nav>
-        </div>
-    </header>
-
+<?php require_once 'public/blocks/header.php'; ?>
     <main role="main" class="inner cover">
         <a class="navbar-brand" href="#">
             <img src="/public/img/emblem.png" class="" alt="">
         </a>
         <h1 class="cover-heading">Сократи длинную ссылку</h1>
-        <p class="lead">Ваших друзей пугают длинные ссылки, занимающие много места в комментариях? Сократи ссылки с помощью нашего сервиса!</p>
-        <form autocomplete="off">
-            <div class="form-row align-items-center">
-                <div class="col-auto">
-                    <input type="email" class="form-control mb-2 text" autocomplete="new-email" id="inlineFormInput" placeholder="Введите email" />
-                </div>
-                <div class="col-auto">
-                    <input type="text" class="form-control mb-2 text" id="inlineFormInput" placeholder="Введите login" />
-                </div>
-                <div class="col-auto">
-                    <input type="password" class="form-control mb-2 text" autocomplete="new-password" id="inlineFormInput" placeholder="Введите пароль" />
+        <p class="lead">Вам нужно сократить ссылку? Сейчас мы это сделаем!</p>
+        <form action="/" class="align-items-center w-100" method="post">
+            <div class="form-row align-items-center w-100">
+                <div class="col-12">
+                    <input type="text" class="form-control mb-2 text" id="full-link" name="full-link" placeholder="Введите длинную ссылку" />
                 </div>
             </div>
             <div class="form-row align-items-center w-100">
-                <div class="col-auto w-100">
-                    <button type="button" class="btn btn-secondary mb-2">Зарегистрируйся</button>
+                <div class="col-12">
+                    <input type="text" class="form-control mb-2 text" id="short-link" name="short-link" placeholder="Введите короткую ссылку" />
                 </div>
             </div>
+            <div class="form-row align-items-center w-100">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-secondary mb-2">Сократить</button>
+                </div>
+            </div>
+            <div class="error"><?php if (isset($data['message'])) echo $data['message']; ?></div>
         </form>
 
-    </main>
+    <?php if(isset($data['links']) && sizeof($data['links'])!=0): ?>
+        <h2>Сокращенные ссылки</h2>
+        <div class="shortlinks">
 
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-            <p>Создан в 2020 году | <a href="http://sav4yk.ru/">Sav4yk.ru</a></p>
+            <?php foreach ($data['links'] as $link):?>
+                <div class="shortlink text-left rounded mb-2 p-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <b>Длинная:</b> <?=$link['full_link'] ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <b>Короткая:</b> <a href="<?=$link['short_link'] ?>" target="_blank">http://<?=$_SERVER['SERVER_NAME'].'/'.$link['short_link'] ?></a>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-secondary mb-2" OnClick="copuBuf('http://<?=$_SERVER['SERVER_NAME'].'/'.$link['short_link'] ?>')">Скопировать в буфер</button>
+                        </div>
+                        <div class="col-6 text-right">
+                            <form action="/" method="post">
+                                <input type="hidden" name="dellink" value="<?=$link['id'] ?>">
+                                <button type="submit" class="btn btn-secondary mb-2">Удалить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach ?>
         </div>
-    </footer>
+
+    <?php endif;?>
+
+    </main>
+<?php require_once 'public/blocks/footer.php'; ?>
 </div>
+<script>
+    function copuBuf($link) {
+        const el = document.createElement('textarea');
+        el.value = $link;
+        el.setAttribute('readonly', '');
+        el.style.position = 'absolute';
+        el.style.left = '-9999px';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    }
+</script>
 </body>
 </html>

@@ -12,10 +12,8 @@
                 $this->controller = ucfirst($url[0]) . 'Controller';
                 unset($url[0]);
             } else {
-                $this->controller = 'SiteError';
-                $this->method = 'err404';
-                unset($url[0]);
-                unset($url[1]);
+                
+                $url[1] = "showUrl";
             }
 
             require_once 'app/controllers/' . $this->controller . '.php';
